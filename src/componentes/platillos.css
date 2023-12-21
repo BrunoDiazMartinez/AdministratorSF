@@ -1,0 +1,409 @@
+:root {
+  --avaluo: rgba(142, 180, 242, 1);
+  --azul: rgba(72, 135, 237, 1);
+  --azulpropuesta: rgba(33, 62, 110, 1);
+  --blanco: rgba(250, 250, 250, 1);
+  --gris: rgba(185, 185, 185, 1);
+  --mercadol: rgba(233, 237, 29, 1);
+  --naranja: rgba(237, 107, 29, 1);
+  --naranjacla-1: rgba(250, 114, 30, 1);
+  --naranjaclar-2: rgba(212, 97, 25, 1);
+  --naranjafue-1: rgba(110, 50, 13, 1);
+  --naranjafue-2: rgba(173, 79, 21, 1);
+  --negro: rgba(30, 30, 30, 1);
+  --propuesta1-INTER-BOLD-font-family: "Inter-Bold", Helvetica;
+  --propuesta1-INTER-BOLD-font-size: 14px;
+  --propuesta1-INTER-BOLD-font-style: normal;
+  --propuesta1-INTER-BOLD-font-weight: 700;
+  --propuesta1-INTER-BOLD-letter-spacing: 1.4px;
+  --propuesta1-INTER-BOLD-line-height: normal;
+  --propuesta1-INTER-font-family: "Inter-Medium", Helvetica;
+  --propuesta1-INTER-font-size: 14px;
+  --propuesta1-INTER-font-style: normal;
+  --propuesta1-INTER-font-weight: 500;
+  --propuesta1-INTER-letter-spacing: 1.4px;
+  --propuesta1-INTER-line-height: normal;
+  --rojo: rgba(244, 56, 79, 1);
+  --TEXTO-font-family: "LibreFranklin-Regular", Helvetica;
+  --TEXTO-font-size: 40px;
+  --TEXTO-font-style: normal;
+  --TEXTO-font-weight: 400;
+  --TEXTO-letter-spacing: 0px;
+  --TEXTO-line-height: 24px;
+  --TITULO-h1-font-family: "IBMPlex Sans-Bold", Helvetica;
+  --TITULO-h1-font-size: 64px;
+  --TITULO-h1-font-style: normal;
+  --TITULO-h1-font-weight: 700;
+  --TITULO-h1-letter-spacing: 0px;
+  --TITULO-h1-line-height: 24px;
+  --TITULO-h2-y-h3-font-family: "IBMPlex Sans-SemiBold", Helvetica;
+  --TITULO-h2-y-h3-font-size: 48px;
+  --TITULO-h2-y-h3-font-style: normal;
+  --TITULO-h2-y-h3-font-weight: 600;
+  --TITULO-h2-y-h3-letter-spacing: 0px;
+  --TITULO-h2-y-h3-line-height: 24px;
+}
+
+.comida {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.comida .div {
+  background-color: var(--blanco);
+  height: 1024px;
+  position: relative;
+  width: 1440px;
+}
+
+.comida .overlap {
+  height: 82px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.comida .frame {
+  background-color: #4ba58699;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 82px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.comida .frame-2 {
+  align-items: center;
+  display: inline-flex;
+  gap: 4px;
+  left: 1328px;
+  position: relative;
+  top: 30px;
+}
+
+.comida .text-wrapper {
+  color: #000000;
+  font-family: "JetBrains Mono-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.comida .vector {
+  height: 11.2px;
+  position: relative;
+  width: 14.27px;
+  background-image: url(../svg/Vector.svg);
+}
+
+.comida .frame-3 {
+  border-radius: 120px;
+  align-items: center;
+  background-repeat: no-repeat;
+  display: inline-flex;
+  gap: 8px;
+  left: 24px;
+  position: absolute;
+  top: 12px;
+  
+}
+
+.comida .intersect {
+  background-image: url(../jpg/Intersect.jpg);
+  border-radius: 120px;
+  height: 57px;
+  object-fit: cover;
+  position: relative;
+  width: 57px;
+}
+
+.comida .text-wrapper-2 {
+  color: #000000;
+  font-family: "JetBrains Mono-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.comida .frame-4 {
+  background-color: #4ba58699;
+  height: 65px;
+  left: 0;
+  position: absolute;
+  top: 959px;
+  width: 1440px;
+}
+
+.comida .overlap-group-wrapper {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040;
+  height: 174px;
+  left: 24px;
+  overflow: hidden;
+  position: absolute;
+  top: 526px;
+  width: 312px;
+}
+
+.comida .overlap-group {
+  background-image: url(../img/agregar.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 171px;
+  position: relative;
+  top: 3px;
+}
+
+.comida .frame-5 {
+  align-items: center;
+  display: inline-flex;
+  gap: 4px;
+  left: 61px;
+  position: relative;
+  top: 60px;
+}
+
+.comida .carbon-add-filled {
+  height: 51px;
+  position: relative;
+  width: 51px;
+  background-image: url(../svg/carbon_add-filled.svg);
+  border-radius: 150px;
+}
+
+.comida .text-wrapper-3 {
+  color: #000000;
+  font-family: "JetBrains Mono-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.comida .text-wrapper-4 {
+  color: #000000;
+  font-family: "JetBrains Mono-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 620px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 180px;
+}
+
+.comida .frame-6 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 45px;
+  left: 24px;
+  position: absolute;
+  top: 243px;
+  width: 1392px;
+}
+
+.comida .frame-7 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.comida .frame-8 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+
+
+.comida .text-wrapper-5 {
+  align-self: stretch;
+  color: #000000;
+  font-family: "JetBrains Mono-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  height: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.comida .images-wrapper-1 {
+  background-image: url(../img/pozole.png);
+  box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040;
+  border-radius: 5px;
+  background-size: cover;
+  height: 174px;
+  overflow: hidden;
+  position: relative;
+  width: 312px;
+}
+.comida .images-wrapper-2 {
+  background-image: url(../img/sushi.png);
+  box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040;
+  border-radius: 5px;
+  background-size: cover;
+  height: 174px;
+  overflow: hidden;
+  position: relative;
+  width: 312px;
+}
+.comida .images-wrapper-3 {
+  background-image: url(../img/ensalada.png);
+  box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040;
+  border-radius: 5px;
+  background-size: cover;
+  height: 174px;
+  overflow: hidden;
+  position: relative;
+  width: 312px;
+}
+.comida .images-wrapper-4 {
+  background-image: url(../img/pasta.png);
+  box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040;
+  border-radius: 5px;
+  background-size: cover;
+  height: 174px;
+  overflow: hidden;
+  position: relative;
+  width: 312px;
+}
+
+
+.comida .frame-wrapper {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  position: relative;
+}
+
+.comida .frame-9 {
+  align-items: center;
+  background-color: #ffef68;
+  border-radius: 10px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.comida .material-symbols {
+  height: 16px;
+  position: relative;
+  width: 16px;
+  background-image: url(../svg/material-symbols_edit-outline-sharp.svg);
+}
+
+.comida .text-wrapper-6 {
+  color: #000000;
+  font-family: "JetBrains Mono-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.comida .frame-10 {
+  background-color: #f4f4f4;
+  border-color: #d9d6d6;
+  border-radius: 3px;
+  height: 40px;
+  left: 24px;
+  overflow: hidden;
+  position: relative;
+  top: 109px;
+  width: 1392px;
+}
+
+.comida .text-wrapper-7 {
+  color: #6a6a6a;
+  font-family: "JetBrains Mono-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 8px;
+}
+
+
+.comida .img {
+  height: 171px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 312px;
+}
+
+.comida .frame-11 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+  left: 688px;
+  position: absolute;
+  top: 243px;
+}
+
+.comida .img-wrapper {
+  background-image: url(../img/pasta.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 171px;
+  position: relative;
+  top: 3px;
+}
+
+.comida .frame-12 {
+  background-color: #f4f4f4;
+  border: 1px solid;
+  border-color: #d9d6d6;
+  border-radius: 3px;
+  height: 40px;
+  left: 24px;
+  overflow: hidden;
+  position: absolute;
+  top: 109px;
+  width: 976px;
+}
+
+.comida .carbon-filter {
+  height: 24px;
+  left: 1350px;
+  position: absolute;
+  top: 8px;
+  width: 24px;
+  background-image: url(../svg/carbon_filter.svg);
+}
