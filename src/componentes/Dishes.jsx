@@ -1,7 +1,20 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import './platillos.css';
 
 function Dishes() {
+  const [ListaPlatillos, setListaPlatillos] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/platillos')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Data from server:', data);
+        setListaPlatillos(data);
+      })
+      .catch((error) => console.error('Error al obtener platillos: ', error));
+  }, []);
+
   return (
     <div className="comida">
       <div className="div">
@@ -30,59 +43,22 @@ function Dishes() {
         </div>
         <div className="text-wrapper-4">Platillos</div>
         <div className="frame-6">
-          <div className="frame-7">
-            <div className="frame-8">
-              <div className="text-wrapper-5">Pozole</div>
-              <div className="images-wrapper-1">
+          {ListaPlatillos.map((platillo) => (
+            <div key={platillo.id_platillo} className="frame-7">
+              <div className="frame-8">
+                <div className="text-wrapper-5">{platillo.nombre_platillo}</div>
+                <div className="images-wrapper-1">
+
+                </div>
+              </div>
+              <div className="frame-wrapper">
+                <Link to={`/Editar/${platillo.id_platillo}`} className="frame-9">
+                  <img className="material-symbols" />
+                  <div className="text-wrapper-6">Editar</div>
+                </Link>
               </div>
             </div>
-            <div className="frame-wrapper">
-              <Link to="/Editar" className="frame-9">
-                <img className="material-symbols" />
-                <div className="text-wrapper-6">Editar</div>
-              </Link>
-            </div>
-          </div>
-          <div className="frame-7">
-            <div className="frame-8">
-              <div className="text-wrapper-5">Sushi</div>
-              <div className="images-wrapper-2">
-                <img className="images" />
-              </div>
-            </div>
-            <div className="frame-wrapper">
-              <Link to="/Editar" className="frame-9">
-                <img className="material-symbols" />
-                <div className="text-wrapper-6">Editar</div>
-              </Link>
-            </div>
-          </div>
-          <div className="frame-7">
-            <div className="frame-8">
-              <div className="text-wrapper-5">Ensalada</div>
-              <div className="images-wrapper-3">
-              </div>
-            </div>
-            <div className="frame-wrapper">
-              <Link to="/Editar" className="frame-9">
-                <img className="material-symbols" />
-                <div className="text-wrapper-6">Editar</div>
-              </Link>
-            </div>
-          </div>
-          <div className="frame-7">
-            <div className="frame-8">
-              <div className="text-wrapper-5">Pasta</div>
-              <div className="images-wrapper-4">
-              </div>
-            </div>
-            <div className="frame-wrapper">
-              <Link to="/Editar" className="frame-9">
-                <img className="material-symbols" />
-                <div className="text-wrapper-6">Editar</div>
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
         <div className="frame-10">
           <img className="carbon-filter" />
