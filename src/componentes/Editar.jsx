@@ -7,7 +7,12 @@ import axios from 'axios';
 export const Editar = () => {
   const { id_platillo } = useParams();  // Obtener id_platillo de las props
   console.log('ID del platillo:', id_platillo);
-  const [platillo, setPlatillo] = useState([]);
+  const [platillo, setPlatillo] = useState({
+    id_platillo: '',
+    nombre_platillo: '',
+    precio: '',
+    descripcion: ''
+  });
   const [originalPlatillo, setOriginalPlatillo] = useState({
     id_platillo: '',
     nombre_platillo: '',
@@ -15,20 +20,18 @@ export const Editar = () => {
     descripcion: ''
   });
   
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios("http://localhost:3001/platillos");
-        const filteredPlatillos = result.data.filter(
-          (item) => item.id_platillo === id_platillo
-        );
-        setPlatillo(filteredPlatillos);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+ 
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const result = await axios(`http://localhost:3001/platillos/${id_platillo}`);
+      setPlatillo(result.data); 
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  fetchData();
+}, [id_platillo]);
 
   const handleGuardarCambios = () => {
     fetch(`http://localhost:3001/platillos/${id_platillo}`, {
@@ -107,7 +110,7 @@ export const Editar = () => {
               <div className="text-wrapper-6">Descripción:</div>
             </div>
             <div className="frame-9">
-              <p className="p">{platillo.descripcion}</p>
+              <p className="p">{platillo.descripcion_platillo}</p>
             </div>
           </div>
         </div>

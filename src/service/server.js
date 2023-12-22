@@ -75,6 +75,23 @@ app.get("/platillos", async (req, res) => {
   }
 });
 
+app.get("/platillos/:id", async (req, res) => {
+  const { id } = req.params; // Obtener el ID del platillo de los parámetros de la URL
+  try {
+    const orden = await pool.query(
+      "SELECT * FROM platillos WHERE id_platillo = $1",
+      [id]
+    );
+    if (orden.rows.length === 0) {
+      return res.status(404).json({ error: "Platillo no encontrado" });
+    }
+    res.json(orden.rows[0]); // Devolver el platillo encontrado (debería ser solo uno)
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    res.status(500).json({ error: "Unable to fetch product" });
+  }
+});
+
 
 
 app.listen(3001, () => {
