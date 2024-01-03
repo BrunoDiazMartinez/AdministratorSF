@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import "./editar.css";
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './editar.css';
 
-export const Editar = () => {
-  const { id_platillo } = useParams();  // Obtener id_platillo de las props
-  console.log('ID del platillo:', id_platillo);
+const Editar = () => {
+  const { id_platillo } = useParams();
   const [platillo, setPlatillo] = useState({
     id_platillo: '',
     nombre_platillo: '',
@@ -19,55 +18,44 @@ export const Editar = () => {
     precio: '',
     descripcion: ''
   });
-  
- 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const result = await axios(`http://localhost:3001/platillos/${id_platillo}`);
-      setPlatillo(result.data); 
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-  fetchData();
-}, [id_platillo]);
 
-  const handleGuardarCambios = () => {
-    fetch(`http://localhost:3001/platillos/${id_platillo}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(platillo),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Respuesta del servidor:', data);
-      })
-      .catch((error) => console.error('Error al guardar cambios: ', error));
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios(`http://localhost:3001/platillos/${id_platillo}`);
+        setPlatillo(result.data);
+        setOriginalPlatillo(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, [id_platillo]);
 
   const handleCancelarCambios = () => {
     console.log('Cancelando cambios');
     setPlatillo(originalPlatillo);
   };
 
+  const handleGuardarCambios = () => {
+    axios.put(`http://localhost:3001/platillos/${platillo.id_platillo}`, platillo)
+      .then((response) => {
+        console.log('Respuesta del servidor:', response.data);
+      })
+      .catch((error) => console.error('Error al guardar cambios: ', error));
+  };
+  
   const handleEliminarPlatillo = () => {
     console.log('Eliminando platillo:', platillo.id_platillo);
-    fetch(`http://localhost:3001/platillos/${platillo.id_platillo}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Respuesta del servidor al eliminar:', data);
+    axios.delete(`http://localhost:3001/platillos/${platillo.id_platillo}`)
+      .then((response) => {
+        console.log('Respuesta del servidor al eliminar:', response.data);
+        // Redirige a la página de platillos después de eliminar
       })
       .catch((error) => console.error('Error al eliminar platillo: ', error));
   };
-  console.log({platillo}); 
+
+  console.log({ platillo });
   return (
     <div className="desktop">
       <div className="div">
@@ -93,33 +81,52 @@ useEffect(() => {
             <div className="div-wrapper">
               <div className="text-wrapper-4">Nombre:</div>
             </div>
-            <div className="frame-7">
-              <div className="text-wrapper-5">{platillo.nombre_platillo}</div>
+            <div>
+              <input
+                className="text-wrapper-5"
+                value={platillo.nombre_platillo}
+                onChange={(e) => setPlatillo({ ...platillo, nombre_platillo: e.target.value })}
+              />
             </div>
           </div>
           <div className="frame-6">
             <div className="div-wrapper">
               <div className="text-wrapper-4">Precio</div>
             </div>
-            <div className="frame-7">
-              <div className="text-wrapper-5">{platillo.precio}</div>
+            <div>
+              <input
+                className="text-wrapper-5"
+                value={platillo.precio}
+                onChange={(e) => setPlatillo({ ...platillo, precio: e.target.value })}
+              />
             </div>
           </div>
           <div className="frame-6">
             <div className="frame-8">
               <div className="text-wrapper-6">Descripción:</div>
             </div>
-            <div className="frame-9">
-              <p className="p">{platillo.descripcion_platillo}</p>
-            </div>
+            <textarea
+              className="frame-9"
+              value={platillo.descripcion}
+              onChange={(e) => setPlatillo({ ...platillo, descripcion: e.target.value })}
+            />
           </div>
         </div>
         <div className="frame-10">
           <Link to='/Dishes' className="frame-11">
-            <div className="text-wrapper">Cancelar</div>
+            <div className="text-wrapper" onClick={handleCancelarCambios}>
+              Cancelar
+            </div>
           </Link>
           <div className="frame-12">
-            <div className="text-wrapper-7">Listo</div>
+            <Link to='/Dishes' className="text-wrapper-7" onClick={handleGuardarCambios}>
+              Guardar
+            </Link>
+          </div>
+          <div className="frame-13">
+            <Link to='/Dishes/#' className="text-wrapper-8" onClick={handleEliminarPlatillo}>
+              Eliminar
+            </Link>
           </div>
         </div>
       </div>

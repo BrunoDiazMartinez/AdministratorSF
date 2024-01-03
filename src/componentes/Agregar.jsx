@@ -57,7 +57,7 @@ const Agregar = () => {
         <div className="frame-5">
           <div className="frame-6">
             <div className="div-wrapper">
-              <label htmlFor="nombrePlatillo" className="text-wrapper-4">
+              <label htmlFor="nombrePlatillo" autoComplete="off" className="text-wrapper-4">
                 Nombre:
               </label>
             </div>
@@ -65,6 +65,7 @@ const Agregar = () => {
               id="nombrePlatillo"
               className="frame-7"
               type="text"
+              autoComplete="off"
               value={nuevoPlatillo.nombre_platillo}
               onChange={(e) => setNuevoPlatillo({ ...nuevoPlatillo, nombre_platillo: e.target.value })}
             />
@@ -78,6 +79,7 @@ const Agregar = () => {
             <input
               id="precioPlatillo"
               className="frame-7"
+              autoComplete="off"
               value={nuevoPlatillo.precio}
               onChange={(e) => setNuevoPlatillo({ ...nuevoPlatillo, precio: e.target.value })}
             />
@@ -91,6 +93,7 @@ const Agregar = () => {
             <textarea
               id="descripcionPlatillo"
               className="frame-9"
+              autoComplete="off"
               value={nuevoPlatillo.descripcion}
               onChange={(e) => setNuevoPlatillo({ ...nuevoPlatillo, descripcion: e.target.value })}
             />
@@ -105,6 +108,7 @@ const Agregar = () => {
               id="idTipoMenu"
               className="frame-7"
               type="text"
+              autoComplete="off"
               value={nuevoPlatillo.id_tipo_menu}
               onChange={(e) => setNuevoPlatillo({ ...nuevoPlatillo, id_tipo_menu: e.target.value })}
             />
@@ -116,11 +120,9 @@ const Agregar = () => {
             <div className="text-wrapper">Cancelar</div>
           </Link>
           <div className="frame-12">
-            <button className="text-wrapper-7" onClick={handleGuardarPlatillo} disabled={loading}>
+            <Link to="/Dishes" className="text-wrapper-7" onClick={handleGuardarPlatillo} disabled={loading}>
               {loading ? 'Guardando...' : 'Guardar'}
-            </button>
-            {success && <div className="success-message">Platillo guardado con éxito.</div>}
-            {error && <div className="error-message">{error}</div>}
+            </Link>
           </div>
         </div>
       </div>

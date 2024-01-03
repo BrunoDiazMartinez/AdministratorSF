@@ -50,6 +50,9 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .comida .div {
@@ -139,7 +142,6 @@
 }
 
 .comida .frame-4 {
-  background-color: #4ba58699;
   height: 65px;
   left: 0;
   position: absolute;
@@ -152,11 +154,9 @@
   border-radius: 5px;
   box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040;
   height: 174px;
-  left: 24px;
-  overflow: hidden;
-  position: absolute;
-  top: 526px;
+  left: 1134px;
   width: 312px;
+  position:fixed;
 }
 
 .comida .overlap-group {
@@ -164,7 +164,6 @@
   background-position: 50% 50%;
   background-size: cover;
   height: 171px;
-  position: relative;
   top: 3px;
 }
 
@@ -210,13 +209,14 @@
 
 .comida .frame-6 {
   align-items: center;
-  display: inline-flex;
+  display:table;
   flex-direction: row;
   gap: 45px;
   left: 24px;
   position: absolute;
   top: 243px;
   width: 1392px;
+  margin-left: 50px;
 }
 
 .comida .frame-7 {
@@ -226,6 +226,7 @@
   flex-direction: column;
   gap: 16px;
   position: relative;
+  margin: 15px;
 }
 
 .comida .frame-8 {

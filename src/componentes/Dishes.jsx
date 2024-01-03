@@ -30,17 +30,6 @@ function Dishes() {
             <div className="text-wrapper-2">Restaurant</div>
           </div>
         </div>
-        <div className="frame-4" />
-        <div className="overlap-group-wrapper">
-          <Link to='/Agregar'>
-            <div className="overlap-group">
-              <div className="frame-5">
-                <img className="carbon-add-filled" />
-                <div className="text-wrapper-3">Agregar</div>
-              </div>
-            </div>
-          </Link>
-        </div>
         <div className="text-wrapper-4">Platillos</div>
         <div className="frame-6">
           {ListaPlatillos.map((platillo) => (
@@ -48,7 +37,6 @@ function Dishes() {
               <div className="frame-8">
                 <div className="text-wrapper-5">{platillo.nombre_platillo}</div>
                 <div className="images-wrapper-1">
-
                 </div>
               </div>
               <div className="frame-wrapper">
@@ -59,6 +47,16 @@ function Dishes() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="overlap-group-wrapper">
+          <Link to='/Agregar'>
+            <div className="overlap-group">
+              <div className="frame-5">
+                <img className="carbon-add-filled" />
+                <div className="text-wrapper-3">Agregar</div>
+              </div>
+            </div>
+          </Link>
         </div>
         <div className="frame-10">
           <img className="carbon-filter" />
